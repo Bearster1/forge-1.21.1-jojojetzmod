@@ -1,6 +1,17 @@
 package net.bearster.jojojetzmod;
 
 import com.mojang.logging.LogUtils;
+import net.bearster.jojojetzmod.block.ModBlocks;
+import net.bearster.jojojetzmod.entity.ModEntities;
+import net.bearster.jojojetzmod.entity.client.*;
+import net.bearster.jojojetzmod.item.ModCreativeModeTabs;
+import net.bearster.jojojetzmod.item.ModItems;
+import net.bearster.jojojetzmod.item.custom.armor.headband.HeadbandArmorItem;
+import net.bearster.jojojetzmod.sound.ModSounds;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -21,17 +32,31 @@ public class JoJoJetzMod
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "jojojetzmod";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static ResourceLocation loc(String id) {
+        return ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID, id);
+    }
 
 
     public JoJoJetzMod(FMLJavaModLoadingContext context)
     {
+
         IEventBus modEventBus = context.getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModItems.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
+
+
+        ModEntities.register(modEventBus);
+
+        ModSounds.SOUND_EVENTS.register(modEventBus);
+
+        ModCreativeModeTabs.register(modEventBus);
 
 
 
@@ -64,8 +89,41 @@ public class JoJoJetzMod
     public static class ClientModEvents
     {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {}
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            ItemColors itemColors = Minecraft.getInstance().getItemColors();
+
+            itemColors.register((stack, tintIndex) -> {
+                if (tintIndex == 0) {
+                    int color = ((HeadbandArmorItem) stack.getItem()).getColor(stack);
+                    LOGGER.info("TintIndex 0 color: " + Integer.toHexString(color));
+
+                    return color | (255 << 24);
+                }
+                LOGGER.info("TintIndex " + tintIndex + " returning -1");
+                return -1;
+            }, ModItems.HEADBAND.get());
+
+            EntityRenderers.register(ModEntities.CHAIRCHAIRJETZ.get(), ChairChairJetzRenderer::new);
+
+            EntityRenderers.register(ModEntities.FIREFIGHTER.get(), FirefighterRenderer::new);
+
+            EntityRenderers.register(ModEntities.FIRE_TRUCK.get(), FireTruckRenderer::new);
+
+            EntityRenderers.register(ModEntities.GOOSE.get(), GooseRenderer::new);
+
+            EntityRenderers.register(ModEntities.OLD_MAN.get(), OldManRenderer::new);
+
+            EntityRenderers.register(ModEntities.JOJO_LINK.get(), JoJoLinkRenderer::new);
+
+            EntityRenderers.register(ModEntities.JOJO_PIKMIN.get(), JoJoPikminRenderer::new);
+
+            EntityRenderers.register(ModEntities.JOJO_PIKMIN_PROJECTILE.get(), JoJoPikminProjectileRenderer::new);
+
+            EntityRenderers.register(ModEntities.JOJOJETZ.get(), JoJoJetzRenderer::new);
+
+        }
 
     }
+
+
 }
