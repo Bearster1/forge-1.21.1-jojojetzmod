@@ -94,6 +94,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addPaintingType(ModPaintingVariants.GRAHAM_JOJO, "Graham J0J0Jetz","Murk, Captain of the Feline Seas");
         addPaintingType(ModPaintingVariants.JOJO_KONG, "J0J0 Kong","Bearster");
         addPaintingType(ModPaintingVariants.JOJO_FIGHTS_DONKEY_KONG, "J0J0Jetz Fighting Donkey Kong","scrvbZ");
+        addPaintingType(ModPaintingVariants.BEARSTER_CODING, "Bearster Coding","scrvbZ");
 
         addAdvancementType("root", "The Beginning", "This is the beginning of the J0J0Jetz achievements. Tip: Combine the headband with 2 magenta dye 1 pink dye and 1 red dye.");
 

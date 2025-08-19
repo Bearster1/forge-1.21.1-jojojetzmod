@@ -25,6 +25,7 @@ public class ModPaintingVariants {
     public static final ResourceKey<PaintingVariant> GRAHAM_JOJO = create("graham_jojo");
     public static final ResourceKey<PaintingVariant> JOJO_KONG = create("jojo_kong");
     public static final ResourceKey<PaintingVariant> JOJO_FIGHTS_DONKEY_KONG = create("jojo_fights_donkey_kong");
+    public static final ResourceKey<PaintingVariant> BEARSTER_CODING = create("bearster_coding");
 
     public static void bootstrap(BootstrapContext<PaintingVariant> pContext) {
         register(pContext, JOJO_KNIGHT, 7, 3);
@@ -40,6 +41,7 @@ public class ModPaintingVariants {
         register(pContext, GRAHAM_JOJO, 1, 3);
         register(pContext, JOJO_KONG, 3, 1);
         register(pContext, JOJO_FIGHTS_DONKEY_KONG, 1, 3);
+        register(pContext, BEARSTER_CODING, 3, 3);
     }
 
     private static ResourceKey<PaintingVariant> create(String pName) {
