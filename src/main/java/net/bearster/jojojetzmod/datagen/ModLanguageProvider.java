@@ -80,6 +80,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addMusicDiscType(ModSounds.YES_GLENN.get(), "Yes Glenn", "J0J0Jetz - Yes Glenn");
 
         addSoundType(ModSounds.FIREFIGHTER.get(), "Firefighter Noises");
+        addSoundType(ModSounds.PIKMIN.get(), "Pikmin Hitting Ground");
 
         addPaintingType(ModPaintingVariants.JOJO_KNIGHT, "J0J0Jetz Getting Knighted", "HobbyBox");
         addPaintingType(ModPaintingVariants.JJJC_PROPAGANDA, "J0J0Jetz Propaganda","scrvbZ");

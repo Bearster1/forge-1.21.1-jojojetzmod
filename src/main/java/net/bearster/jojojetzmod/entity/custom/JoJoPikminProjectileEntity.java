@@ -2,6 +2,8 @@ package net.bearster.jojojetzmod.entity.custom;
 
 import net.bearster.jojojetzmod.entity.ModEntities;
 import net.bearster.jojojetzmod.item.ModItems;
+import net.bearster.jojojetzmod.sound.ModSounds;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -76,4 +78,11 @@ public class JoJoPikminProjectileEntity extends AbstractArrow {
         }
         this.discard();
     }
+
+    @Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
+        return ModSounds.PIKMIN.get();
+    }
+
+
 }

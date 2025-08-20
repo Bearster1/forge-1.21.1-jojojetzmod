@@ -46,6 +46,7 @@ public class ModSounds {
     public static final ResourceKey<JukeboxSong> YES_GLENN_KEY = createSong("yes_glenn");
 
     public static final RegistryObject<SoundEvent> FIREFIGHTER = registerSoundEvent("firefighter");
+    public static final RegistryObject<SoundEvent> PIKMIN = registerSoundEvent("pikmin");
 
     private static ResourceKey<JukeboxSong> createSong(String name) {
         return ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID, name));

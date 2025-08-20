@@ -58,6 +58,9 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
         add(FIREFIGHTER.get(), definition()
                 .subtitle("sounds.jojojetzmod.firefighter")
                 .with(sound(JoJoJetzMod.loc("firefighter"))));
+        add(PIKMIN.get(), definition()
+                .subtitle("sounds.jojojetzmod.pikmin")
+                .with(sound(JoJoJetzMod.loc("pikmin"))));
     }
 
     private static ResourceKey<JukeboxSong> create(String pName) {
