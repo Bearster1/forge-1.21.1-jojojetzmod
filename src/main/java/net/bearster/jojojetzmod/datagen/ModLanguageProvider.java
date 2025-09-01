@@ -96,6 +96,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addPaintingType(ModPaintingVariants.JOJO_KONG, "J0J0 Kong","Bearster");
         addPaintingType(ModPaintingVariants.JOJO_FIGHTS_DONKEY_KONG, "J0J0Jetz Fighting Donkey Kong","scrvbZ");
         addPaintingType(ModPaintingVariants.BEARSTER_CODING, "Bearster Coding","scrvbZ");
+        addPaintingType(ModPaintingVariants.BEARSTER_STARGLAZING, "Bearster Starglazing","Nightblood");
+        addPaintingType(ModPaintingVariants.BEARSTER_PFP,"Bearster Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.GOOGOOPROTECT, "GooGooProtect","HobbyBox");
+        addPaintingType(ModPaintingVariants.JIELD, "Jield","Jackaboi");
 
         addAdvancementType("root", "The Beginning", "This is the beginning of the J0J0Jetz achievements. Tip: Combine the headband with 2 magenta dye 1 pink dye and 1 red dye.");
 

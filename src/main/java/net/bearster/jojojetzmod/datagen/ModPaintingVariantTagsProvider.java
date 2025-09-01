@@ -34,7 +34,10 @@ public class ModPaintingVariantTagsProvider extends PaintingVariantTagsProvider 
                 .add(ModPaintingVariants.JOJO_KONG)
                 .add(ModPaintingVariants.JOJO_FIGHTS_DONKEY_KONG)
                 .add(ModPaintingVariants.BEARSTER_CODING)
-
+                .add(ModPaintingVariants.BEARSTER_STARGLAZING)
+                .add(ModPaintingVariants.BEARSTER_PFP)
+                .add(ModPaintingVariants.GOOGOOPROTECT)
+                .add(ModPaintingVariants.JIELD)
         ;
     }
 }

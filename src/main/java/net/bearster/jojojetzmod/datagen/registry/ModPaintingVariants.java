@@ -26,6 +26,10 @@ public class ModPaintingVariants {
     public static final ResourceKey<PaintingVariant> JOJO_KONG = create("jojo_kong");
     public static final ResourceKey<PaintingVariant> JOJO_FIGHTS_DONKEY_KONG = create("jojo_fights_donkey_kong");
     public static final ResourceKey<PaintingVariant> BEARSTER_CODING = create("bearster_coding");
+    public static final ResourceKey<PaintingVariant> BEARSTER_STARGLAZING = create("bearster_starglazing");
+    public static final ResourceKey<PaintingVariant> BEARSTER_PFP = create("bearster_pfp");
+    public static final ResourceKey<PaintingVariant> GOOGOOPROTECT = create("googooprotect");
+    public static final ResourceKey<PaintingVariant> JIELD = create("jield");
 
     public static void bootstrap(BootstrapContext<PaintingVariant> pContext) {
         register(pContext, JOJO_KNIGHT, 7, 3);
@@ -42,6 +46,10 @@ public class ModPaintingVariants {
         register(pContext, JOJO_KONG, 3, 1);
         register(pContext, JOJO_FIGHTS_DONKEY_KONG, 1, 3);
         register(pContext, BEARSTER_CODING, 3, 3);
+        register(pContext, BEARSTER_STARGLAZING, 3,1);
+        register(pContext, BEARSTER_PFP, 1, 1);
+        register(pContext, GOOGOOPROTECT, 1, 1);
+        register(pContext, JIELD, 1, 1);
     }
 
     private static ResourceKey<PaintingVariant> create(String pName) {
