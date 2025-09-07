@@ -6,6 +6,8 @@ import net.bearster.jojojetzmod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.Tags;
@@ -34,6 +36,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .requires(Items.ICE)
                         .requires(Items.SUGAR)
                         .unlockedBy("has_water_bucket", has(Items.WATER_BUCKET)).save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.MILK_BOTTLE.get())
+                .requires(Items.GLASS_BOTTLE)
+                .requires(Items.MILK_BUCKET)
+                .unlockedBy("has_milk_bucket", has(Items.MILK_BUCKET)).save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.JETZ_JUICE.get())
                 .pattern(" P ")
@@ -183,6 +190,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', ModItems.JETZ_CULT_MUSIC_DISC.get())
                 .unlockedBy("has_totem_of_undying",has(Items.TOTEM_OF_UNDYING)).save(pRecipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GK_LIGHTSABER.get())
+                .pattern("  B")
+                .pattern(" D ")
+                .pattern("I  ")
+                .define('B',Items.BLAZE_POWDER)
+                .define('D',Items.DIAMOND)
+                .define('I',Items.IRON_INGOT)
+                .unlockedBy("has_diamond",has(Items.DIAMOND)).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.PENCIL.get())
+                .pattern("  C")
+                .pattern(" S ")
+                .pattern("S  ")
+                .define('C', ItemTags.COALS)
+                .define('S', Items.STICK)
+                .unlockedBy("has_coals",has(ItemTags.COALS)).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.PLUNGER.get())
+                .pattern("  C")
+                .pattern(" S ")
+                .pattern("S  ")
+                .define('C', Items.REDSTONE_BLOCK)
+                .define('S', Items.STICK)
+                .unlockedBy("has_redstone_block",has(Items.REDSTONE_BLOCK)).save(pRecipeOutput);
+
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.JETZ_CULT_MUSIC_DISC.get())
                 .pattern("JJJ")
                 .pattern("JJJ")
@@ -190,43 +224,43 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('J',ModTags.Items.JOJOJETZ_ITEMS)
                 .unlockedBy("has_jojojetz_items",has(ModTags.Items.JOJOJETZ_ITEMS)).save(pRecipeOutput,"jojojetzmod:jetz_cult_music_disc_from_normal_crafting");
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.JETZ_CLUB_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.JETZ_CLUB_MUSIC_DISC.get())
                 .requires(ModItems.JETZ_CULT_MUSIC_DISC.get())
                 .unlockedBy("has_jetz_cult_music_disc", has(ModItems.JETZ_CULT_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CRAZY_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CRAZY_MUSIC_DISC.get())
                 .requires(ModItems.JETZ_CLUB_MUSIC_DISC.get())
                 .unlockedBy("has_jetz_club_music_disc", has(ModItems.JETZ_CLUB_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.JEBAITED_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.JEBAITED_MUSIC_DISC.get())
                 .requires(ModItems.CRAZY_MUSIC_DISC.get())
                 .unlockedBy("has_crazy_music_disc", has(ModItems.CRAZY_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.JETZ_CULT_GIRLS_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.JETZ_CULT_GIRLS_MUSIC_DISC.get())
                 .requires(ModItems.JEBAITED_MUSIC_DISC.get())
                 .unlockedBy("has_jebaited_music_disc", has(ModItems.JEBAITED_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.JOJO_STAMINA_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.JOJO_STAMINA_MUSIC_DISC.get())
                 .requires(ModItems.JETZ_CULT_GIRLS_MUSIC_DISC.get())
                 .unlockedBy("has_jetz_cult_girls_music_disc", has(ModItems.JETZ_CULT_GIRLS_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.KITTY_KITTY_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.KITTY_KITTY_MUSIC_DISC.get())
                 .requires(ModItems.JOJO_STAMINA_MUSIC_DISC.get())
                 .unlockedBy("has_jojo_stamina_music_disc", has(ModItems.JOJO_STAMINA_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.OLD_ZELDA_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.OLD_ZELDA_MUSIC_DISC.get())
                 .requires(ModItems.KITTY_KITTY_MUSIC_DISC.get())
                 .unlockedBy("has_kitty_kitty_music_disc", has(ModItems.KITTY_KITTY_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.TROLOL_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TROLOL_MUSIC_DISC.get())
                 .requires(ModItems.OLD_ZELDA_MUSIC_DISC.get())
                 .unlockedBy("has_old_zelda_music_disc", has(ModItems.OLD_ZELDA_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.YES_GLENN_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.YES_GLENN_MUSIC_DISC.get())
                 .requires(ModItems.TROLOL_MUSIC_DISC.get())
                 .unlockedBy("has_trolol_music_disc", has(ModItems.TROLOL_MUSIC_DISC.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.JETZ_CULT_MUSIC_DISC.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.JETZ_CULT_MUSIC_DISC.get())
                 .requires(ModItems.YES_GLENN_MUSIC_DISC.get())
                 .unlockedBy("has_yes_glenn_music_disc", has(ModItems.YES_GLENN_MUSIC_DISC.get())).save(pRecipeOutput,"jojojetzmod:jetz_cult_music_disc_from_yes_glenn_music_disc");
     }

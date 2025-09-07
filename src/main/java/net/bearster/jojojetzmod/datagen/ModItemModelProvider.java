@@ -4,6 +4,7 @@ import net.bearster.jojojetzmod.JoJoJetzMod;
 import net.bearster.jojojetzmod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -21,6 +22,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BURRITO.get());
         basicItem(ModItems.SPARKLING_WATER.get());
         basicItem(ModItems.JETZ_JUICE.get());
+        basicItem(ModItems.MILK_BOTTLE.get());
 
         basicItem(ModItems.HEADBAND.get());
         basicItem(ModItems.FEDORA.get());
@@ -50,10 +52,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.JOJO_PIKMIN.get());
         basicItem(ModItems.JOJOJETZ.get());
 
+        handheldItem(ModItems.GK_LIGHTSABER);
+        handheldItem(ModItems.PENCIL);
+        handheldItem(ModItems.PLUNGER);
+
     }
 
     private ItemModelBuilder horizontalBlockItem(RegistryObject<Block> block) {
         return getBuilder(block.getId().getPath()).parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID,
                 "block/" + block.getId().getPath())));
+    }
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(), ResourceLocation.parse("item/handheld")).texture("layer0", JoJoJetzMod.loc("item/"+item.getId().getPath()));
     }
 }

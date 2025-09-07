@@ -37,6 +37,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BURRITO.get());
                         output.accept(ModItems.SPARKLING_WATER.get());
                         output.accept(ModItems.JETZ_JUICE.get());
+                        output.accept(ModItems.MILK_BOTTLE.get());
 
                         output.accept(ModBlocks.GAMECUBE.get());
 
@@ -62,6 +63,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.JOJO_PIKMIN.get());
 
                         output.accept(ModItems.JOJOJETZ.get());
+
+                        output.accept(ModItems.GK_LIGHTSABER.get());
+                        output.accept(ModItems.PENCIL.get());
+                        output.accept(ModItems.PLUNGER.get());
+
+                        output.accept(ModItems.LEXI_GUN.get());
 
 
                     }).build());

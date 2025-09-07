@@ -151,7 +151,28 @@ public class ModItems {
     public static final RegistryObject<Item> JOJOJETZ = ITEMS.register("jojojetz",
             () -> new SpawnEggCustomTextureItem(ModEntities.JOJOJETZ, new Item.Properties()));
 
+    public static final RegistryObject<Item> GK_LIGHTSABER = ITEMS.register("gk_lightsaber",
+            () -> new SwordItem(Tiers.DIAMOND, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,6,0f))));
+
+    public static final RegistryObject<Item> PENCIL = ITEMS.register("pencil",
+            () -> new SwordItem(Tiers.WOOD, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.WOOD,4,-3f))));
+
+    public static final RegistryObject<Item> PLUNGER = ITEMS.register("plunger",
+            () -> new SwordItem(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON,1,-2f))));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+
+    public static final RegistryObject<Item> MILK_BOTTLE = ITEMS.register("milk_bottle",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.MILK_BOTTLE)) {
+                @Override
+                public UseAnim getUseAnimation(ItemStack pStack) {
+                    return UseAnim.DRINK;
+                }
+
+
+            });
+
+    public static final RegistryObject<Item> LEXI_GUN = ITEMS.register("lexi_gun",
+            () -> new Item(new Item.Properties()));
 }

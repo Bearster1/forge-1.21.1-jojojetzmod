@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.slf4j.Logger;
 
@@ -31,6 +32,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.BURRITO.get(), "Burrito");
         add(ModItems.SPARKLING_WATER.get(), "Sparkling Water");
         add(ModItems.JETZ_JUICE.get(), "Jetz Juice");
+        basicTranslation(ModItems.MILK_BOTTLE.get());
 
         add(ModItems.HEADBAND.get(), "Headband");
         add(ModItems.FEDORA.get(), "Fedora");
@@ -48,6 +50,12 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.JOJO_LINK.get(), "J0J0 Link");
         add(ModItems.JOJO_PIKMIN.get(), "J0J0 Pikmin");
         add(ModItems.JOJOJETZ.get(), "J0J0Jetz");
+
+        basicTranslation(ModItems.PENCIL.get());
+        basicTranslation(ModItems.PLUNGER.get());
+        add(ModItems.GK_LIGHTSABER.get(), "General Kenobi's Lightsaber");
+
+        add(ModItems.LEXI_GUN.get(),"Lexi's Gun");
 
         addNameType("master_sword","Master Sword");
         addNameType("hylian_shield","Hylian Shield");
@@ -100,6 +108,40 @@ public class ModLanguageProvider extends LanguageProvider {
         addPaintingType(ModPaintingVariants.BEARSTER_PFP,"Bearster Profile Picture","HobbyBox");
         addPaintingType(ModPaintingVariants.GOOGOOPROTECT, "GooGooProtect","HobbyBox");
         addPaintingType(ModPaintingVariants.JIELD, "Jield","Jackaboi");
+        addPaintingType(ModPaintingVariants.MIDNA,"Midna","HobbyBox");
+        addPaintingType(ModPaintingVariants.ABADAB_PFP,"Abadab Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.CROCHET_GIRLY_PFP,"Crochet Girly Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.CROCHETY_GIRL_PFP,"Crochety Girl Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.DDDF_PFP,"DDDF Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.DREAMSICLE_PFP,"Dreamsicle Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.ETHAN_BOOKS_PFP,"Ethan's Books Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.GAME_OVER_PFP,"Game Over Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.GAMO_PFP,"Gamo Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.GLACKER_PFP,"Glacker Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.GOOGOOGYATZ_PFP,"GooGooGyatz Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.HERB_PFP,"Herb Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.JESSICA_PFP,"Jessica Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.JOSEY_PFP,"Josey Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.KIDO_PFP,"Kido Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.KRISTY_PFP,"Kristy Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.LEXI_PFP,"Lexi Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.LOST_HYLIAN_PFP,"Lost Hylian Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.LUCAS_PFP,"LucasPapaG Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.MK_PFP,"MK Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.MR_EPIC_PFP,"Mr Epic Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.MURK_PFP,"Murk Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.NIGHTBLOOD_PFP,"Nightblood Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.PAVLOVA_PFP,"Pavlova Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.PERSON_PFP,"Person Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.PLUMMAH_PFP,"Plummah Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.SCRVBZ_PFP,"scrvbZ Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.SHADOWWOLF_PFP,"ShadowWolf Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.THE_DDDF_PFP,"The DDDF Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.VOCA_PFP,"Voca Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.WILLIAM_PFP,"William Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.YOUR_LOCAL_PLUMBER_PFP,"Your.Local.Plumber Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.SONIC_DA_QUEEN_PFP,"Sonic Da Queen Profile Picture","HobbyBox");
+        addPaintingType(ModPaintingVariants.LEXI_GUN, "Lexi Gun","Herb");
 
         addAdvancementType("root", "The Beginning", "This is the beginning of the J0J0Jetz achievements. Tip: Combine the headband with 2 magenta dye 1 pink dye and 1 red dye.");
 
@@ -162,5 +204,45 @@ public class ModLanguageProvider extends LanguageProvider {
                                    String translatedDescription) {
         add("advancements.jojojetzmod."+keyName+".title", translatedTitle);
         add("advancements.jojojetzmod."+keyName+".description", translatedDescription);
+    }
+
+    public void basicTranslation(Item item) {
+        String name = item.getDescriptionId().replace('_',' ');
+        String[] names = name.split("\\.");
+        name = names[2];
+        String[] parts = name.split("\\s");
+        for (int i = 0; i < parts.length; i++) {
+            parts[i] = parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
+        }
+        name = "";
+        for (int i = 0; i < parts.length; i++) {
+            if (i < parts.length - 1) {
+                name = name + parts[i] + " ";
+            } else {
+                name = name + parts[i];
+            }
+        }
+
+        add(item, name);
+    }
+
+    public void basicTranslation(Block block) {
+        String name = block.getDescriptionId().replace('_',' ');
+        String[] names = name.split("\\.");
+        name = names[2];
+        String[] parts = name.split("\\s");
+        for (int i = 0; i < parts.length; i++) {
+            parts[i] = parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
+        }
+        name = "";
+        for (int i = 0; i < parts.length; i++) {
+            if (i < parts.length - 1) {
+                name = name + parts[i] + " ";
+            } else {
+                name = name + parts[i];
+            }
+        }
+
+        add(block, name);
     }
 }
