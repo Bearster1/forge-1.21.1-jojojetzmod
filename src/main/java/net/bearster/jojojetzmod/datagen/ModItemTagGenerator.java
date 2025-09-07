@@ -73,7 +73,12 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.KITTY_KITTY_MUSIC_DISC.get())
                 .add(ModItems.OLD_ZELDA_MUSIC_DISC.get())
                 .add(ModItems.TROLOL_MUSIC_DISC.get())
-                .add(ModItems.YES_GLENN_MUSIC_DISC.get());
+                .add(ModItems.YES_GLENN_MUSIC_DISC.get())
+
+                .add(ModItems.LEXI_BULLET.get())
+                .add(ModItems.LEXI_MAG.get())
+                .add(ModItems.LEXI_GUN.get());
+
 
     }
 }

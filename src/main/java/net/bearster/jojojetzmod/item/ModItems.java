@@ -20,6 +20,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import javax.annotation.Nonnull;
+
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, JoJoJetzMod.MOD_ID);
@@ -159,13 +161,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> PLUNGER = ITEMS.register("plunger",
             () -> new SwordItem(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON,1,-2f))));
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
-    }
 
     public static final RegistryObject<Item> MILK_BOTTLE = ITEMS.register("milk_bottle",
             () -> new Item(new Item.Properties().food(ModFoodProperties.MILK_BOTTLE)) {
                 @Override
+                @Nonnull
                 public UseAnim getUseAnimation(ItemStack pStack) {
                     return UseAnim.DRINK;
                 }
@@ -174,5 +174,20 @@ public class ModItems {
             });
 
     public static final RegistryObject<Item> LEXI_GUN = ITEMS.register("lexi_gun",
-            () -> new Item(new Item.Properties()));
+            () -> new LexiGunItem(new Item.Properties().durability(1000)));
+
+    public static final RegistryObject<Item> LEXI_BULLET = ITEMS.register("lexi_bullet",
+            () -> new LexiBulletItem(new Item.Properties().stacksTo(64).fireResistant()));
+
+    public static final RegistryObject<Item> LEXI_MAG = ITEMS.register("lexi_mag",
+            () -> new LexiMagItem(new Item.Properties().stacksTo(1).fireResistant()) {
+                @Override
+                public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+                    return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
+                }
+            });
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
 }

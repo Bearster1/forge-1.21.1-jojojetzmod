@@ -25,6 +25,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import javax.swing.text.html.parser.Entity;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(JoJoJetzMod.MOD_ID)
 public class JoJoJetzMod
@@ -120,6 +122,8 @@ public class JoJoJetzMod
             EntityRenderers.register(ModEntities.JOJO_PIKMIN_PROJECTILE.get(), JoJoPikminProjectileRenderer::new);
 
             EntityRenderers.register(ModEntities.JOJOJETZ.get(), JoJoJetzRenderer::new);
+
+            EntityRenderers.register(ModEntities.LEXI_BULLET_PROJECTILE.get(), LexiBulletRenderer::new);
 
         }
 

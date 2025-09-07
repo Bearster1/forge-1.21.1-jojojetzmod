@@ -69,6 +69,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PLUNGER.get());
 
                         output.accept(ModItems.LEXI_GUN.get());
+                        output.accept(ModItems.LEXI_BULLET.get());
+                        output.accept(ModItems.LEXI_MAG.get());
 
 
                     }).build());

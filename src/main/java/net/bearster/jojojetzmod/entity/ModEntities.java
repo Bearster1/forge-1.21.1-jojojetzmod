@@ -49,6 +49,10 @@ public class ModEntities {
             ENTITY_TYPES.register("jojojetz", () -> EntityType.Builder.of(JoJoJetzEntity::new, MobCategory.CREATURE)
                     .sized(0.5f, 1.5f).build("jojojetz"));
 
+    public static final RegistryObject<EntityType<LexiBulletEntity>> LEXI_BULLET_PROJECTILE =
+            ENTITY_TYPES.register("lexi_bullet_projectile", () -> EntityType.Builder.of(LexiBulletEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 1.15f).build("lexi_bullet_projectile"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

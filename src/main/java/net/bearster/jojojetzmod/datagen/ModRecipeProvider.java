@@ -215,7 +215,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .unlockedBy("has_redstone_block",has(Items.REDSTONE_BLOCK)).save(pRecipeOutput);
 
+        // LEXI WEAPON BEGIN
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.LEXI_GUN.get())
+                .pattern("III")
+                .pattern("BL ")
+                .pattern("B  ")
+                .define('I', Items.IRON_INGOT)
+                .define('B', Items.IRON_BLOCK)
+                .define('L', Items.LEVER)
+                .unlockedBy("has_iron_block", has(Items.IRON_BLOCK)).save(pRecipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.LEXI_BULLET.get())
+                .pattern("C  ")
+                .pattern("G  ")
+                .pattern("B  ")
+                .define('C', Items.COPPER_INGOT)
+                .define('B', Items.GOLD_INGOT)
+                .define('G', Items.GUNPOWDER)
+                .unlockedBy("has_iron_block", has(Items.IRON_BLOCK)).save(pRecipeOutput);
+
+
+
+        // LEXI WEAPON END
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.JETZ_CULT_MUSIC_DISC.get())
                 .pattern("JJJ")

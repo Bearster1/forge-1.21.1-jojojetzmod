@@ -29,5 +29,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation JOJOJETZ = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID, "jojojetz"), "main");
 
+    public static final ModelLayerLocation LEXI_BULLET = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID, "lexi_bullet"), "main");
+
 
 }
