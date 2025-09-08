@@ -8,14 +8,22 @@ import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class LexiBulletModel extends HierarchicalModel<LexiBulletEntity> {
     private final ModelPart body;
 
+    /** Constructs a new Lexi Bullet Model
+     * @param root The Model
+     */
     public LexiBulletModel(ModelPart root) {
         this.body = root.getChild("body");
     }
 
+    /** Creates the body layer
+     * @return A new Layer Definition
+     */
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

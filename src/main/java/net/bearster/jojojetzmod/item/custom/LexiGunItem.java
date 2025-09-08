@@ -1,21 +1,24 @@
 package net.bearster.jojojetzmod.item.custom;
 
 import net.bearster.jojojetzmod.item.ModItems;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Position;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Predicate;
 
+/**
+ * A Lexi Gun
+ */
 public class LexiGunItem extends ProjectileWeaponItem {
 
     private LexiMagItem _magazine;
 
+    /** Constructs a new Lexi Gun
+     * @param pProperties Item Properties
+     */
     public LexiGunItem(Item.Properties pProperties) {
         super(pProperties);
         _magazine = new LexiMagItem(pProperties);
@@ -34,18 +37,29 @@ public class LexiGunItem extends ProjectileWeaponItem {
     }
 
     @Override
-    protected void shootProjectile(@NotNull LivingEntity pShooter, @NotNull Projectile pProjectile, int pIndex, float pVelocity, float pInaccuracy, float pAngle, @Nullable LivingEntity pTarget) {
+    protected void shootProjectile(@NotNull LivingEntity pShooter,
+                                   @NotNull Projectile pProjectile,
+                                   int pIndex,
+                                   float pVelocity,
+                                   float pInaccuracy,
+                                   float pAngle,
+                                   @Nullable LivingEntity pTarget) {
         _magazine.Spend();
-        pProjectile.shootFromRotation(pShooter, pShooter.getXRot(), pShooter.getYRot() + pAngle, 0.0F, pVelocity, pInaccuracy);
+        pProjectile.shootFromRotation(pShooter,
+                pShooter.getXRot(),
+                pShooter.getYRot() + pAngle,
+                0.0F,
+                pVelocity,
+                pInaccuracy);
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack, LivingEntity pEntity) {
+    public int getUseDuration(@NotNull ItemStack pStack, @NotNull LivingEntity pEntity) {
         return 72000;
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack pStack) {
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.NONE;
     }
 }

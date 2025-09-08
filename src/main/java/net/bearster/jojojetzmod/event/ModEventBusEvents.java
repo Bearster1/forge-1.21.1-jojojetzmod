@@ -14,6 +14,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
+/**
+ * Mod Bus Events
+ */
 @Mod.EventBusSubscriber(modid = JoJoJetzMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
     @SubscribeEvent
@@ -26,6 +29,8 @@ public class ModEventBusEvents {
         event.registerLayerDefinition(ModModelLayers.JOJO_LINK, JoJoLinkModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JOJO_PIKMIN, JoJoPikminModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JOJOJETZ, JoJoJetzModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.LEXI_BULLET, LexiBulletModel::createBodyLayer);
+
     }
 
     @SubscribeEvent

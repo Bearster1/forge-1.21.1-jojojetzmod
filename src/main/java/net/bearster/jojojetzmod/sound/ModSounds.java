@@ -48,6 +48,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> FIREFIGHTER = registerSoundEvent("firefighter");
     public static final RegistryObject<SoundEvent> PIKMIN = registerSoundEvent("pikmin");
 
+    public static final RegistryObject<SoundEvent> LEXI_SHOT = registerSoundEvent("lexi_shot");
+
     private static ResourceKey<JukeboxSong> createSong(String name) {
         return ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID, name));
     }

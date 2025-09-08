@@ -56,6 +56,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.GK_LIGHTSABER.get(), "General Kenobi's Lightsaber");
 
         add(ModItems.LEXI_GUN.get(),"Lexi's Gun");
+        basicTranslation(ModItems.LEXI_BULLET.get());
+        basicTranslation(ModItems.LEXI_BULLET.get());
 
         addNameType("master_sword","Master Sword");
         addNameType("hylian_shield","Hylian Shield");
@@ -89,6 +91,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         addSoundType(ModSounds.FIREFIGHTER.get(), "Firefighter Noises");
         addSoundType(ModSounds.PIKMIN.get(), "Pikmin Hitting Ground");
+        addSoundType(ModSounds.LEXI_SHOT.get(), "Lexi Gun Firing");
 
         addPaintingType(ModPaintingVariants.JOJO_KNIGHT, "J0J0Jetz Getting Knighted", "HobbyBox");
         addPaintingType(ModPaintingVariants.JJJC_PROPAGANDA, "J0J0Jetz Propaganda","scrvbZ");
@@ -165,6 +168,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addAdvancementType("old_man","Ohhh, I remeber","Get an Old Man.");
 
         addAdvancementType("kill_jojo_link","Ganon will remember this action","Kill J0J0 Link");
+
+        addAdvancementType("lexi_gun","Lexi's Got A Gun, Everybody Run.","Get the Lexi Gun");
 
     }
 

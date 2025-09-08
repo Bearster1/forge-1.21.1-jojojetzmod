@@ -2,8 +2,7 @@ package net.bearster.jojojetzmod.item;
 
 import net.bearster.jojojetzmod.JoJoJetzMod;
 import net.bearster.jojojetzmod.entity.ModEntities;
-import net.bearster.jojojetzmod.item.custom.JoJoPikminItem;
-import net.bearster.jojojetzmod.item.custom.SpawnEggCustomTextureItem;
+import net.bearster.jojojetzmod.item.custom.*;
 import net.bearster.jojojetzmod.item.custom.armor.ArmorModel;
 import net.bearster.jojojetzmod.item.custom.armor.ArmorRenderer;
 import net.bearster.jojojetzmod.item.custom.armor.BasicArmorItem;

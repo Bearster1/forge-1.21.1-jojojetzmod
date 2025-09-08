@@ -10,24 +10,36 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
+/**
+ * Lexi Bullet Renderer
+ */
 public class LexiBulletRenderer extends EntityRenderer<LexiBulletEntity> {
     private LexiBulletModel model;
 
+    /** Constructs a new Lexi Bullet Renderer
+     * @param pContext Entity Renderer Provider Context
+     */
     public LexiBulletRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
         model = new LexiBulletModel(pContext.bakeLayer(ModModelLayers.LEXI_BULLET));
     }
 
     @Override
-    public void render(LexiBulletEntity pEntity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
-        poseStack.pushPose();
+    public void render(@NotNull LexiBulletEntity pEntity,
+                       float pEntityYaw,
+                       float pPartialTick,
+                       PoseStack pPoseStack,
+                       @NotNull MultiBufferSource pBufferSource,
+                       int pPackedLight) {
+        pPoseStack.pushPose();
 
         VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(
-                buffer, this.model.renderType(this.getTextureLocation(pEntity)),false, false);
-        this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY);
-        poseStack.popPose();
-        super.render(pEntity, entityYaw, partialTicks, poseStack, buffer, packedLight);
+                pBufferSource, model.renderType(getTextureLocation(pEntity)), false, false);
+        model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY);
+        pPoseStack.popPose();
+        super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBufferSource, pPackedLight);
     }
 
     @Override

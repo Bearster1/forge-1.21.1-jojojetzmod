@@ -27,24 +27,40 @@ import org.slf4j.Logger;
 
 import javax.swing.text.html.parser.Entity;
 
+/**
+ * J0J0Jetz Cult(ure) Club Mod
+ */
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(JoJoJetzMod.MOD_ID)
 public class JoJoJetzMod
 {
     // Define mod id in a common place for everything to reference
+    /**
+     * Mod ID
+     */
     public static final String MOD_ID = "jojojetzmod";
+
     // Directly reference a slf4j logger
+    /**
+     * Global Logger
+     */
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static ResourceLocation loc(String id) {
-        return ResourceLocation.fromNamespaceAndPath(JoJoJetzMod.MOD_ID, id);
+    /** Locates a resource by ID
+     * @param id Identifier to locate
+     * @return The Resource Location
+     */
+    public static ResourceLocation loc(final String id) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
     }
 
 
-    public JoJoJetzMod(FMLJavaModLoadingContext context)
-    {
+    /** Constructs the J0J0Jetz Mod
+     * @param context Forge Mod Loader Context
+     */
+    public JoJoJetzMod(final FMLJavaModLoadingContext context) {
 
-        IEventBus modEventBus = context.getModEventBus();
+        final IEventBus modEventBus = context.getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -59,11 +75,6 @@ public class JoJoJetzMod
         ModSounds.SOUND_EVENTS.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
-
-
-
-
-
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -78,56 +89,43 @@ public class JoJoJetzMod
     {}
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {}
+    private void addCreative(final BuildCreativeModeTabContentsEvent event) {
+    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {}
+    public void onServerStarting(final ServerStartingEvent event) {
+    }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    @Mod.EventBusSubscriber(modid = JoJoJetzMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            ItemColors itemColors = Minecraft.getInstance().getItemColors();
+        public static void onClientSetup(final FMLClientSetupEvent event) {
+            final ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
             itemColors.register((stack, tintIndex) -> {
-                if (tintIndex == 0) {
-                    int color = ((HeadbandArmorItem) stack.getItem()).getColor(stack);
-                    LOGGER.info("TintIndex 0 color: " + Integer.toHexString(color));
+                if (0 == tintIndex) {
+                    final int color = ((HeadbandArmorItem) stack.getItem()).getColor(stack);
+                    // JoJoJetzMod.LOGGER.info("TintIndex 0 color: {}", Integer.toHexString(color));
 
                     return color | (255 << 24);
                 }
-                LOGGER.info("TintIndex " + tintIndex + " returning -1");
+                // JoJoJetzMod.LOGGER.info("TintIndex {} returning -1", tintIndex);
                 return -1;
             }, ModItems.HEADBAND.get());
 
             EntityRenderers.register(ModEntities.CHAIRCHAIRJETZ.get(), ChairChairJetzRenderer::new);
-
             EntityRenderers.register(ModEntities.FIREFIGHTER.get(), FirefighterRenderer::new);
-
             EntityRenderers.register(ModEntities.FIRE_TRUCK.get(), FireTruckRenderer::new);
-
             EntityRenderers.register(ModEntities.GOOSE.get(), GooseRenderer::new);
-
             EntityRenderers.register(ModEntities.OLD_MAN.get(), OldManRenderer::new);
-
             EntityRenderers.register(ModEntities.JOJO_LINK.get(), JoJoLinkRenderer::new);
-
             EntityRenderers.register(ModEntities.JOJO_PIKMIN.get(), JoJoPikminRenderer::new);
-
             EntityRenderers.register(ModEntities.JOJO_PIKMIN_PROJECTILE.get(), JoJoPikminProjectileRenderer::new);
-
             EntityRenderers.register(ModEntities.JOJOJETZ.get(), JoJoJetzRenderer::new);
-
             EntityRenderers.register(ModEntities.LEXI_BULLET_PROJECTILE.get(), LexiBulletRenderer::new);
-
         }
 
     }
-
-
 }

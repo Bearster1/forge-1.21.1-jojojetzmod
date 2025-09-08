@@ -52,6 +52,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.JOJO_PIKMIN.get());
         basicItem(ModItems.JOJOJETZ.get());
 
+        basicItem(ModItems.LEXI_BULLET.get());
+
         handheldItem(ModItems.GK_LIGHTSABER);
         handheldItem(ModItems.PENCIL);
         handheldItem(ModItems.PLUNGER);
