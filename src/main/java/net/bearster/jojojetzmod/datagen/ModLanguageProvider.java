@@ -15,6 +15,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
+import org.jetbrains.annotations.NonNls;
 import org.slf4j.Logger;
 
 public class ModLanguageProvider extends LanguageProvider {
@@ -22,7 +23,7 @@ public class ModLanguageProvider extends LanguageProvider {
         super(output, JoJoJetzMod.MOD_ID, "en_us");
     }
 
-    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final @NonNls Logger LOGGER = LogUtils.getLogger();
 
     @Override
     protected void addTranslations() {
@@ -57,7 +58,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModItems.LEXI_GUN.get(),"Lexi's Gun");
         basicTranslation(ModItems.LEXI_BULLET.get());
-        basicTranslation(ModItems.LEXI_BULLET.get());
+        basicTranslation(ModItems.LEXI_MAG.get());
 
         addNameType("master_sword","Master Sword");
         addNameType("hylian_shield","Hylian Shield");

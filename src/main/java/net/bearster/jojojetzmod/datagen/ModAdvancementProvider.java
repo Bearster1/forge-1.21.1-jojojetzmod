@@ -30,7 +30,8 @@ import java.util.function.Consumer;
 
 public class ModAdvancementProvider extends ForgeAdvancementProvider {
 
-    public ModAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
+    public ModAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries,
+                                  ExistingFileHelper existingFileHelper) {
         super(output, registries, existingFileHelper, List.of(new JoJoJetzGenerator()));
     }
 
@@ -301,29 +302,6 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                     .addCriterion("get_lexi_gun", InventoryChangeTrigger.TriggerInstance
                             .hasItems(ModItems.LEXI_GUN.get()))
                     .save(saver, JoJoJetzMod.loc("jojojetz.lexi_gun"));
-
-            AdvancementHolder[] advancements = {
-                    getHeadband,
-                    killedFirefighter,
-                    getFirefighterHelmet,
-                    getFirefighterPlate,
-                    getFirefighterPants,
-                    getFirefighterBoots,
-                    getFirefighter,
-                    getFireTruck,
-                    getJojoPikmin,
-                    getFedora,
-                    getJetzCultMusicDisc,
-                    getSoundOfMusicDiscs,
-                    killedJojojetz,
-                    getOldMan,
-                    killedJojoLink,
-                    getLexiGun
-            };
-
-            for (AdvancementHolder advancement : advancements) {
-                saver.accept(advancement);
-            }
         }
     }
 }
